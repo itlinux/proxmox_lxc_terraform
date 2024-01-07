@@ -4,3 +4,32 @@ Spin up LXC containers using TF in your proxmox.
 
 
 == Basic spin up of LXC in proxmox. More coming!!
+
+
+
+== Create User
+
+ssh into your proxmox and run the following
+
+----
+pveum role add tf-role -privs "Pool.Allocate VM.Console VM.Allocate VM.Clone VM.Config.CDROM VM.Config.CPU VM.Config.Cloudinit VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Monitor VM.Audit VM.PowerMgmt Datastore.AllocateSpace Datastore.Audit"
+pveum user add terraform@pve
+pveum aclmod / -user terraform@pve -role tf-role
+pveum user token add terraform@pve terraform --privsep 0
+----
+
+.Output
+----
+root@casa:~# pveum user token add terraform@pve terraform-token --privsep=0
+┌──────────────┬──────────────────────────────────────┐
+│ key          │ value                                │
+╞══════════════╪══════════════════════════════════════╡
+│ full-tokenid │ terraform@pve!terraform-token        │
+├──────────────┼──────────────────────────────────────┤
+│ info         │ {"privsep":"0"}                      │
+├──────────────┼──────────────────────────────────────┤
+│ value        │ 4687b1df-2eaf-2573-1429-9c89fbe8c7aa │
+----
+
+== Update
+I used the token instead of password.

@@ -1,3 +1,8 @@
+variable prox_token_secret {}
+variable prox_user_token {
+    default = "terraform@pve!terraform-token"
+}
+
 variable proxmox_api{
     default = "https://192.168.24.11:8006/api2/json"
 }
@@ -16,12 +21,6 @@ variable hostname {
 variable ct_count {
     default = "2"
 }
-variable prox_pass {}
-
-variable prox_user {
-    default = "root@pam"
-}
-
 variable vmpass {
     default = "demoremo"
 }
