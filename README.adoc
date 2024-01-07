@@ -1,0 +1,6 @@
+= Proxmox LXC Terraform
+
+Spin up LXC containers using TF in your proxmox.
+
+
+== Basic spin up of LXC in proxmox. More coming!!
