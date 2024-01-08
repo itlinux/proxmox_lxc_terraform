@@ -15,14 +15,32 @@ variable vm_storage_location {
     default = "local-lvm"
 }
 
+variable vm_dhcp {
+    type    = string
+    default = "static"
+}
+variable nameserver {
+    default = "1.1.1.1"
+}
+variable ip_subnet {
+    default = "23"
+}
+variable ip_addr_full {
+    #default = ["192.168.25.22"]
+    default  = "192.168.25"
+}
+variable gateway {
+    default = "192.168.24.254"
+}
+
 variable hostname {
     default = "rocky-ct"
 }
 variable ct_count {
-    default = "2"
+    default = "3"
 }
 variable vmpass {
-    default = "demoremo"
+    default = "ciaociao"
 }
 
 variable target_node {
