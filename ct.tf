@@ -14,8 +14,7 @@ resource "proxmox_lxc" "lxc-test" {
     network {
         name   = "eth0"
         bridge = "vmbr0"
-        ip     = var.vm_dhcp == "dhcp" ? "dhcp" : join(".", tolist([var.ip_addr_full,"${count.index + 10 }"]))
-        #ip     = var.vm_dhcp == "dhcp" ? "dhcp" : var.ip_addr_full[count.index +10]/23
+        ip      = var.vm_dhcp ? "dhcp" : "${cidrhost(var.hostprefix,var.ip_range_start + count.index +1 )}/${var.cidr}"
         ip6    = "dhcp"
         gw     = var.vm_dhcp == "dhcp" ? "dhcp" : var.gateway
     }

@@ -16,8 +16,8 @@ variable vm_storage_location {
 }
 
 variable vm_dhcp {
-    type    = string
-    default = "static"
+    type    = bool
+    default = false
 }
 variable nameserver {
     default = "1.1.1.1"
@@ -25,9 +25,14 @@ variable nameserver {
 variable ip_subnet {
     default = "23"
 }
-variable ip_addr_full {
-    #default = ["192.168.25.22"]
-    default  = "192.168.25"
+variable hostprefix {
+    default = "192.168.24.0/23"
+}
+variable ip_range_start {
+    default = "270"
+}
+variable cidr {
+    default = 23
 }
 variable gateway {
     default = "192.168.24.254"
@@ -37,7 +42,7 @@ variable hostname {
     default = "rocky-ct"
 }
 variable ct_count {
-    default = "3"
+    default = "2"
 }
 variable vmpass {
     default = "ciaociao"
